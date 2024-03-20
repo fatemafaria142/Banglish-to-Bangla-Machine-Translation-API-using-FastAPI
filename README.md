@@ -37,7 +37,6 @@ This API takes Banglish text as input and returns the translated Bangla text. It
     uvicorn main:app --reload
     ```
 
-4. Access the API at `http://localhost:8000/translate?text=YourBanglishText`
 
 ## API Documentation
 
