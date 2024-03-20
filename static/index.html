@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banglish to Bangla Machine Translation</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+</head>
+<body>
+    <h1>BengaliBridge</h1>
+
+    <div class="container">
+        <div class="column">
+            <h3>Banglish Text</h3>
+            <form id="text-form">
+                <textarea id="text-input" name="text" rows="4" cols="50" placeholder="Enter your Banglish text here"></textarea><br>
+                <button type="submit">Translate</button>
+            </form>
+        </div>
+    
+        <div class="column">
+            <h3>Bangla Text</h3>
+            <div id="translation-result" class="placeholder-text">Translation will appear here</div>
+        </div>
+    </div>
+    
+
+    <!-- JavaScript code to handle form submission and update the translation result dynamically. -->
+    <script>
+       
+        const form = document.getElementById('text-form'); //Retrieves the form element by its id.
+        form.addEventListener('submit', async (event) => { //Adds an event listener to the form submission event.
+            event.preventDefault(); //Prevents the default form submission behavior.
+            const formData = new FormData(form); //Creates a new FormData object from the form data.
+            const text = formData.get('text'); //Retrieves the text input value from the form data.
+
+           //Sends a POST request to the '/translation/' endpoint with the user's text data.
+            const response = await fetch('/translation/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({text: text})
+            });
+
+            const data = await response.json(); //Parses the JSON response from the server.
+            document.getElementById('translation-result').innerText = `${data.translation}`; // Updates the content of the textarea with the translation result returned by the server.
+
+        });
+    </script>
+</body>
+</html>
