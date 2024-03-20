@@ -1,0 +1,4 @@
+fastapi==0.110.0
+normalizer==0.0.1
+pydantic==2.6.4
+transformers==4.38.2
