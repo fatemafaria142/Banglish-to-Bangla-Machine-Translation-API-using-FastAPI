@@ -6,6 +6,10 @@ This is a simple API built with FastAPI for translating Banglish (Bangla written
 
 This API takes Banglish text as input and returns the translated Bangla text. It's useful for scenarios where users are more comfortable typing in Roman script but require the text to be translated into Bangla script.
 
+## Dataset Used
+
+The Banglish to Bangla Machine Translation App utilizes the [Vashantor dataset](https://data.mendeley.com/datasets/bj5jgk878b/2) for training and evaluation.
+
 ## Features
 
 - Translate Banglish text to Bangla script
